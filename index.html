@@ -11,19 +11,44 @@
 <body>
   <div class='container' ng-controller='RestaurantsCtrl'>
     <h1>Best Restaurants</h1>
+    <div class='col-md-6'>
+      <h4>Search Restaurants</h4>
+      <form class='form-inline'>
+        <div class='form-group'>
+          <input ng-model='query' type='text' class='form-control' placeholder='Search'>
+        </div>
+      </form>
+    </div>
     <div class='row'>
       <div class='col-md-6'>
-        <h2>Restaurant List</h2>
-          <ul ng-repeat='item in restaurants'>
-            <u>{{item.name}}</u>
-            <ul>
-                <li> {{item.cuisine}} </li>
-                <li> {{item.price}} </li>
-                <li> {{item.location}} </li>
-                  <a ng-click="deleteRestaurant(item)">
-                    <button type='submit' class='btn btn-danger btn-xs'>Remove</button></a>
-            </ul>
-          </ul>
+        <h2 ng-show='restaurants.length && filtered.length'>Restaurant List</h2>
+        <h2 ng-show='restaurants.length && !filtered.length'>No Matches</h2>
+          <ul ng-repeat='item in restaurants | filter:query'>
+          <span ng-click='editing = true' ng-hide='editing'>
+              <u>{{item.name}}</u>
+                  <li> Cuisine: {{item.cuisine}} </li>
+                  <li> Price: {{item.price}} </li>
+                  <li> Location: {{item.location}} </li>
+                    <a ng-click="deleteRestaurant(item)">
+                      <button type='submit' class='btn btn-danger btn-xs'>Remove</button></a>
+          </span>
+          <span class='form-group' ng-show='editing' ng-submit='editing = false'>
+
+            <form role='form'>
+
+              <label>Name:</label>
+              <input type="text" class='form-control input-sm' ng-model='item.name' placeholder='Name'>
+              <label>Cuisine:</label>
+              <input type="text" class='form-control input-sm' ng-model='item.cuisine' placeholder='Cuisine'>
+              <label>Price:</label>
+              <input type="text" class='form-control input-sm' ng-model='item.price' placeholder='Price'>
+              <label>Location:</label>
+              <input type="text" class='form-control input-sm' ng-model='item.location' placeholder='Location'>
+              <br>
+              <button class='btn btn-default btn-sm' type='submit'>Save</button>
+            </form>
+          </span>
+      </ul>
       </div>
       <div class='col-md-6'>
         <h2>New Restaurant</h2>

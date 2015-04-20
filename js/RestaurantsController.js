@@ -3,9 +3,9 @@ bestRestaurants.controller('RestaurantsCtrl', function RestaurantsCtrl($scope) {
   $scope.addRestaurant = function() {
     $scope.restaurants.push({ name: $scope.restaurantName, cuisine: $scope.restaurantCuisine, location: $scope.restaurantLocation, price: $scope.restaurantPriceRange });
     $scope.restaurantName = null;
-    $scope.cuisine = null;
+    $scope.restaurantCuisine = null;
     $scope.restaurantLocation = null;
-    $scope.priceRange = null;
+    $scope.restaurantPriceRange = null;
 
   };
   $scope.deleteRestaurant = function(restaurant) {
