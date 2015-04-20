@@ -5,3 +5,7 @@
 3. User should be able to edit and delete a restaurant.
 
 4. User should be able to filter restaurants through a search either by cuisine, location, or price range.
+
+5. User can select Price range from a drop down menu ranging from $ - $$$.
+
+6. User can create and search for restaurants with dietary restrictions such as vegetarian, using a check box.
