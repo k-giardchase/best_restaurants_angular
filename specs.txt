@@ -1,0 +1,7 @@
+1. User should be able to input a restaurant.
+
+2. Restaurant should have descriptive properties such as: cuisine, location, and price range.
+
+3. User should be able to edit and delete a restaurant.
+
+4. User should be able to filter restaurants through a search either by cuisine, location, or price range. 
